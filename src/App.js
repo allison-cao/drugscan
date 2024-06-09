@@ -1,25 +1,40 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import Camera from './components/Camera/Camera';
+import { recognizeDrugs } from './components/VisionAPI/VisionAPI';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+    const [recognizedData, setRecognizedData] = useState(null);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState('');
+
+    const handleCapture = async (imageData) => {
+        setLoading(true);
+        setError('');
+        try {
+            const result = await recognizeDrugs(imageData);
+            setRecognizedData(result);
+        } catch (err) {
+            setError('Failed to recognize the drug(s). Please try again.');
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    return (
+        <div className="App">
+            <h1>Drug Recognition App</h1>
+            <Camera onCapture={handleCapture} />
+            {loading && <p>Loading...</p>}
+            {error && <p className="error">{error}</p>}
+            {recognizedData && (
+                <div className="result">
+                    <h2>Recognized Drugs:</h2>
+                    <p>{recognizedData}</p>
+                </div>
+            )}
+        </div>
+    );
+};
 
 export default App;
