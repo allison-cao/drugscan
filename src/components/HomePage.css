@@ -1,0 +1,61 @@
+.home-container {
+    text-align: center;
+    padding: 20px;
+}
+
+.image-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap; /* Allows the items to wrap to the next line on smaller screens */
+    margin: 20px 0;
+}
+
+.image-block {
+    width: 22%; /* Adjusts the width to fit 4 blocks across on wider screens */
+    margin: 10px; /* Provides some spacing around each block */
+    text-align: center; /* Centers the text and image in the block */
+}
+
+.image-block img {
+    width: 100%; /* Makes the image fill the block */
+    height: auto; /* Maintains the aspect ratio of the images */
+    border-radius: 10px; /* Optional: Adds rounded corners to your images */
+}
+
+.image-block p {
+    margin-top: 10px; /* Adds space between the image and the text */
+    font-size: 14px; /* Sets the font size for the text */
+    color: #666; /* Sets a mild color for the text, can be adjusted */
+}
+
+.start-camera-btn {
+    display: inline-block;
+    background-color: #4CAF50; /* Green background */
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.start-camera-btn:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+/* Responsive adjustments for narrow screens */
+@media (max-width: 768px) {
+    .image-block {
+        width: 100%; /* Makes each block full width on smaller screens */
+        margin: 20px 0; /* Increases vertical spacing */
+    }
+
+    .image-block img {
+        width: 80%; /* Optionally reduce the width of images for a better fit */
+        margin: 0 auto; /* Center images if not full-width */
+    }
+
+    .image-block p {
+        font-size: 16px; /* Increase font size for readability on small screens */
+    }
+}

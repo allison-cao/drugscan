@@ -1,40 +1,23 @@
-import React, { useState } from 'react';
-import Camera from './components/Camera/Camera';
-import { recognizeDrugs } from './components/VisionAPI/VisionAPI';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import HomePage from './components/HomePage';
+import CameraPage from './components/CameraPage';
+import HamburgerMenu from './components/HamburgerMenu';
 import './App.css';
 
-const App = () => {
-    const [recognizedData, setRecognizedData] = useState(null);
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState('');
-
-    const handleCapture = async (imageData) => {
-        setLoading(true);
-        setError('');
-        try {
-            const result = await recognizeDrugs(imageData);
-            setRecognizedData(result);
-        } catch (err) {
-            setError('Failed to recognize the drug(s). Please try again.');
-        } finally {
-            setLoading(false);
-        }
-    };
-
-    return (
-        <div className="App">
-            <h1>Drug Recognition App</h1>
-            <Camera onCapture={handleCapture} />
-            {loading && <p>Loading...</p>}
-            {error && <p className="error">{error}</p>}
-            {recognizedData && (
-                <div className="result">
-                    <h2>Recognized Drugs:</h2>
-                    <p>{recognizedData}</p>
-                </div>
-            )}
-        </div>
-    );
-};
+function App() {
+  return (
+    <Router>
+      <div className="App">
+        <HamburgerMenu />
+        <h1>Drug Recognition App</h1>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/camera" element={<CameraPage />} />
+        </Routes>
+      </div>
+    </Router>
+  );
+}
 
 export default App;
