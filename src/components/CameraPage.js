@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Camera from './Camera/Camera';
 import { recognizeDrugs } from './VisionAPI/VisionAPI';
+import './CameraPage.css';
 
 function CameraPage() {
     const [recognizedData, setRecognizedData] = useState(null);
@@ -31,6 +32,9 @@ function CameraPage() {
                     <p>{recognizedData}</p>
                 </div>
             )}
+            <div className="disclaimer-block">
+                <p>Disclaimer: Our application utilizes artificial intelligence, which, while advanced, may not always provide 100% accurate or reliable results. Please use discretion and verify information independently.</p>
+            </div>
         </div>
     );
 }
