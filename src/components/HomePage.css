@@ -1,3 +1,15 @@
+.homepage-style {
+    text-align: center;
+    color: rgb(255, 255, 255);
+    background-color: black;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+
 .home-container {
     text-align: center;
     padding: 20px;
@@ -47,6 +59,30 @@
     color:#8e8e8e
 }
 
+.home-page {
+    padding: 20px;
+    font-family: 'Times New Roman', serif; /* Default font family for the page */
+  }
+  
+  .app-description {
+    font-family: 'Times New Roman', serif; /* Specific font family for the description */
+    font-size: 22px; /* Default font size */
+    color: #ffffff; /* Optional: Set a text color */
+  }
+  
+  .substack-link {
+    font-size: 26px;
+    font-weight: 900;
+    padding: 20px;
+    color: #ffffff
+}
+
+.substack-link a {
+    color: #33b1ff; /* Replace with your preferred color */
+  }
+  
+
+
 
 /* Responsive adjustments for narrow screens */
 @media (max-width: 768px) {
@@ -56,11 +92,29 @@
     }
 
     .image-block img {
-        width: 80%; /* Optionally reduce the width of images for a better fit */
+        width: 100%; /* Optionally reduce the width of images for a better fit */
         margin: 0 auto; /* Center images if not full-width */
     }
 
     .image-block p {
         font-size: 20px; /* Increase font size for readability on small screens */
     }
+
+    .substack-link {
+        font-size: 26px;
+        font-weight: 900;
+        padding: 20px
+    }
+
+    .app-description {
+        font-family: 'Times New Roman', serif; /* Specific font family for the description */
+        font-size: 22px; /* Default font size */
+        color: #ffffff; /* Optional: Set a text color */
+    }
+
+    .home-page {
+        padding: 100px;
+        font-family: 'Times New Roman', serif; /* Default font family for the page */
+    }
+
 }

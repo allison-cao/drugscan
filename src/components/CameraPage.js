@@ -32,9 +32,6 @@ function CameraPage() {
                     <p>{recognizedData}</p>
                 </div>
             )}
-            <div className="disclaimer-block">
-                <p>Disclaimer: Our application utilizes artificial intelligence, which, while advanced, may not always provide 100% accurate or reliable results. Please use discretion and verify information independently.</p>
-            </div>
         </div>
     );
 }
