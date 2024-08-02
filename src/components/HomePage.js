@@ -4,8 +4,16 @@ import './HomePage.css'; // Ensure you create this CSS file
 
 function HomePage() {
   return (
+    <div className="home-page">
+      <h1>Preventing accidental addiction one image at a time.</h1>
+      <p className="app-description">
+      My name is Allison, I go to Tumwater Middle School, and this is how I used AI to create an application that tells you if a drug can be addictive from just a simple picture. 
+      </p>
+      <p className="substack-link">
+  Learn more: <a href="https://open.substack.com/pub/allisoncao/p/drugscan-preventing-accidental-addiction?r=47kohk&utm_campaign=post&utm_medium=web&showWelcomeOnShare=true" target="_blank" >My Substack</a>
+</p>
     <div className="home-container">
-      <h2>How it works</h2>
+      <h1>How it works</h1>
       <div className="image-container">
         <div className="image-block">
           <img src="2933639C-EF2B-447E-9CDF-F00B10B17280.png" alt="Drug Example 1" />
@@ -25,9 +33,7 @@ function HomePage() {
         </div>
       </div>
       <Link to="/camera" className="start-camera-btn">Get Started</Link>  {/* Updated text here */}
-      <div className="privacy-block">
-        <p>Privacy Policy: We do not collect, store, or share any of your personal data or information. Your privacy is fully respected and protected.</p>
-      </div>
+    </div>
     </div>
   );
 }

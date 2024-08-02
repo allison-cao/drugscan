@@ -7,19 +7,20 @@
     color: white;
 }
 
+/* src/components/Camera/camera.css */
+
 .camera-video {
-    width: 100%; /* Adjust based on your preference */
+    width: 100%; /* Full width of its container */
     height: auto; /* Maintain aspect ratio */
-    margin-bottom: 20px; /* Adds some space between the video and the buttons */
-    border: 1px solid black; /* Adds border for visibility */
-    transform: scaleX(-1); /* Flips the video horizontally */
 }
+
 
 .buttons-container {
     display: inline-block;
     justify-content: center; /* Center buttons horizontally within the container */
     width: 100%; /* Take up full width to center content */
     margin-top: 10px; /* Space above the button */
+    font-family: 'Times New Roman', serif;
 }
 
 .camera-button {
@@ -34,8 +35,10 @@
     /* text-transform: uppercase; Makes text uppercase for styling */
     transition: background-color 0.3s; /* Smooth transition for hover effect */
     font-weight: bold;
+    font-family: 'Times New Roman', serif;
 }
 
 .camera-button:hover {
     background-color: #45a049; /* Darker green on hover */
 }
+
