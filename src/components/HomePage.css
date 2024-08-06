@@ -85,7 +85,7 @@
 
 
 /* Responsive adjustments for narrow screens */
-@media (max-width: 768px) {
+@media (max-width: 600px) {
     .image-block {
         width: 100%; /* Makes each block full width on smaller screens */
         margin: 20px 0; /* Increases vertical spacing */
@@ -110,6 +110,7 @@
         font-family: 'Times New Roman', serif; /* Specific font family for the description */
         font-size: 22px; /* Default font size */
         color: #ffffff; /* Optional: Set a text color */
+        padding: 0px
     }
 
     .home-page {
