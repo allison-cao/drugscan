@@ -4,21 +4,36 @@ import './camera.css'; // Ensure this path is correct
 const Camera = ({ onCapture }) => {
     const [error, setError] = useState('');
     const [cameraOn, setCameraOn] = useState(true); // Camera is on by default
+    const [facingMode, setFacingMode] = useState("environment"); // Default to 'environment'
     const videoRef = useRef(null);
     const canvasRef = useRef(null);
 
+    // Function to determine the initial facing mode based on screen size
+    const determineFacingMode = () => {
+        // Define a threshold for "smaller screens" like mobile phones
+        const screenWidthThreshold = 768; // For example, 768px could be a threshold
+        if (window.innerWidth <= screenWidthThreshold) {
+            return "environment"; // Use back camera for small screens
+        } else {
+            return "user"; // Use front camera for larger screens
+        }
+    };
+
     // Function to start the camera
     const startCamera = async () => {
-        setError('');  // Clear any previous errors
+        setError('');
+        const constraints = {
+            video: {
+                facingMode: facingMode 
+            }
+        };
         try {
-            const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+            const stream = await navigator.mediaDevices.getUserMedia(constraints);
             if (videoRef.current) {
                 videoRef.current.srcObject = stream;
-                videoRef.current.play().then(() => {
-                    console.log("Camera is now playing.");
-                }).catch((playbackError) => {
-                    // Handle error more discreetly without setting user-facing error state
+                videoRef.current.play().catch((playbackError) => {
                     console.error("Error occurred during video playback: ", playbackError);
+                    //setError(`Playback error: ${playbackError.message}`);
                 });
             }
         } catch (accessError) {
@@ -28,12 +43,21 @@ const Camera = ({ onCapture }) => {
     };
 
     useEffect(() => {
+        setFacingMode(determineFacingMode()); // Determine the initial facing mode
+
+        // Listener for window resize to update facing mode if necessary
+        const handleResize = () => {
+            setFacingMode(determineFacingMode());
+        };
+        window.addEventListener('resize', handleResize);
+
         if (cameraOn) {
             startCamera();
         }
 
-        // Cleanup function to turn off the camera when the component unmounts
+        // Cleanup function to turn off the camera and remove event listener
         return () => {
+            window.removeEventListener('resize', handleResize);
             if (videoRef.current && videoRef.current.srcObject) {
                 videoRef.current.srcObject.getTracks().forEach(track => track.stop());
                 videoRef.current.srcObject = null;
@@ -50,13 +74,22 @@ const Camera = ({ onCapture }) => {
             context.drawImage(videoRef.current, 0, 0, canvas.width, canvas.height);
             const dataURL = canvas.toDataURL('image/png');
             onCapture(dataURL);
-            setCameraOn(false); // Turn off the camera after capturing the image
+            setCameraOn(false);
         }
     };
 
     return (
         <div className="camera-container">
-            {cameraOn && <video ref={videoRef} autoPlay playsInline muted className="camera-video" />}
+            {cameraOn && (
+                <video 
+                    ref={videoRef} 
+                    autoPlay 
+                    playsInline 
+                    muted 
+                    className="camera-video"
+                    style={{transform: facingMode === 'user' ? 'scaleX(-1)' : 'none'}}
+                />
+            )}
             <canvas ref={canvasRef} style={{ display: 'none' }}></canvas>
             <div className="buttons-container">
                 {!cameraOn && (
@@ -68,7 +101,6 @@ const Camera = ({ onCapture }) => {
                     <button onClick={captureImage} className="camera-button">Capture Image</button>
                 )}
             </div>
-            {/* Remove or conditionally render the error message based on severity or user need */}
             {error && <p>Error: {error}</p>}
         </div>
     );
