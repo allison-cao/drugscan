@@ -1,8 +1,16 @@
 .hamburger-menu {
-    position: absolute;
-    top: 10px;
-    right: 10px;
+    position: fixed;
+    top: 0px;
     z-index: 1000;
+    width: 100%;
+    background-color: black; /* Maintains a consistent black background */
+    color: white;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between; /* Ensures items in the header are spaced out properly */
+    align-items: center; /* Centers items vertically */
+    padding: 10px 20px;
 }
 
 .menu-icon {
@@ -19,8 +27,8 @@
     background-color: #f9f9f9;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     width: 200px;
-    right: 0;
-    top: 40px;
+    left: 0;
+    top: 75px;
 }
 
 .dropdown-menu ul {

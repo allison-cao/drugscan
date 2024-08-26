@@ -1,0 +1,9 @@
+header {
+    font-family: 'Roboto', sans-serif; /* Change 'Roboto' to your chosen font */
+    font-size: 24px; /* Set the size of your text */
+    color: white; /* Ensuring the text color is visible against a dark background */
+  }
+  
+  nav ul li a {
+    font-size: 20px; /* Optionally set a different size for navigation links */
+  }

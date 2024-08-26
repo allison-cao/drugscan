@@ -15,6 +15,34 @@
     padding: 20px;
 }
 
+.title {
+    font-size: 70px;
+    font-weight: bolder;
+}
+
+.subtitle {
+    font-size: 40px;
+    padding: 20px;
+    font-weight: bold;
+}
+
+.green-rectangle p {
+    margin: 10px auto;
+    width: 90%;
+  }
+
+  .green-rectangle {
+    background-color: #4CAF50; /* Green color */
+    color: white;
+    padding: 50px;
+    border-radius: 30px;
+    margin: 10px auto; /* Center the element horizontally */
+    width: 70%;
+    box-sizing: border-box; /* Ensure padding doesn't affect size */
+    text-align: center; /* Center text inside the rectangle */
+  }
+  
+
 .image-container {
     display: flex;
     justify-content: space-around;
@@ -22,6 +50,7 @@
     flex-wrap: wrap; /* Allows the items to wrap to the next line on smaller screens */
     margin: 20px 0;
 }
+
 
 .image-block {
     width: 22%; /* Adjusts the width to fit 4 blocks across on wider screens */
@@ -43,17 +72,39 @@
 
 .start-camera-btn {
     display: inline-block;
-    background-color: #4CAF50; /* Green background */
-    color: white;
-    padding: 10px 20px;
+    background-color: #ffffff; /* Green background */
+    color: #4CAF50;
+    padding: 20px 80px;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 8px;
+    font-size: 32px;
     font-weight: bold;
 }
 
 .start-camera-btn:hover {
-    background-color: #45a049; /* Darker green on hover */
+    background-color: #c7c7c7; /* Darker green on hover */
 }
+
+.external-link-btn {
+    display: inline-block;
+    background-color: #ffffff; /* Green background */
+    color: #4CAF50;
+    padding: 25px 80px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 32px;
+    text-align: center;
+    transition: background-color 0.2s ease;
+    cursor: pointer;
+    border: none;
+    margin-top: 10px;
+  }
+  
+  .external-link-btn:hover {
+    background-color: #45a049;
+  }
+  
 
 .privacy-block {
     color:#8e8e8e
@@ -70,52 +121,131 @@
     color: #ffffff; /* Optional: Set a text color */
   }
   
-  .substack-link {
-    font-size: 26px;
-    font-weight: 900;
+  .blurb {
+    font-size: 20px;
     padding: 20px;
     color: #ffffff
 }
-
-.substack-link a {
-    color: #33b1ff; /* Replace with your preferred color */
-  }
   
 
 
 
 /* Responsive adjustments for narrow screens */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
+
+    .title {
+        font-size: 45px;
+        font-weight: bolder;
+        padding: 10px;
+    }
+
+    .subtitle {
+        font-size: 30px;
+        padding: 10px;
+        font-weight: bold;
+    }
+
     .image-block {
         width: 100%; /* Makes each block full width on smaller screens */
-        margin: 20px 0; /* Increases vertical spacing */
+        /* margin: 20px 0; Increases vertical spacing */
+        text-align: center; /*Centers the content within the block */
     }
-
+ 
+ 
     .image-block img {
-        width: 100%; /* Optionally reduce the width of images for a better fit */
-        margin: 0 auto; /* Center images if not full-width */
-    }
+        width: 100%; /* Makes images full width */
+        max-width: 300px; /* Optional: Limit the maximum width of the images */
+        display: block; /* Ensures block-level layout */
+        /* margin: 0 auto; Centers the image horizontally */
+        margin: 0 auto;
 
+    }
+ 
+ 
     .image-block p {
-        font-size: 20px; /* Increase font size for readability on small screens */
+        font-size: 20px; /*Increase font size for readability on small screens */
     }
-
-    .substack-link {
-        font-size: 26px;
-        font-weight: 900;
-        padding: 20px
-    }
-
+ 
+ 
+    .external-link-btn {
+        display: block; /* Change from inline-block to block */
+        background-color: #ffffff; /* White background */
+        color: #4CAF50; /* Green text */
+        padding: 10px;
+        text-decoration: none;
+        border-radius: 8px;
+        font-size: 32px;
+        font-weight: bold;
+        text-align: center;
+        position: relative; /* Keeps the button positioned relative to its normal flow */
+        margin: 20px auto; /* Centers the button horizontally, add top and bottom margin as needed */
+        box-sizing: border-box; /* Includes padding and border in width and height calculation */
+        align-self: center;
+      }
+      
+ 
+ 
     .app-description {
         font-family: 'Times New Roman', serif; /* Specific font family for the description */
         font-size: 22px; /* Default font size */
         color: #ffffff; /* Optional: Set a text color */
-        padding: 0px
+        /* padding: 0px; */
     }
-
+ 
+ 
     .home-page {
-        padding: 100px;
-        font-family: 'Times New Roman', serif; /* Default font family for the page */
+        /* padding: 20px; */
+        font-family: 'Times New Roman', serif; /* Consistent font family */
+        max-width: 100%; /* Limit the width to prevent excessive stretching */
+        /* margin: 0 auto; Center the div within its parent */
+        width: 100%; /* Take up 100% of the parent width up to max-width */
+        box-sizing: border-box; /* Includes padding in the width calculation */
+        align-items: center;
+        justify-content: center;
+        
     }
-
-}
+    
+ 
+    .green-rectangle {
+        background-color: #4CAF50; /* Green color */
+        color: white;
+        /* padding: 70px ; */
+        border-radius: 30px;
+        /* margin: 20px ; Center the element horizontally and add vertical margin */
+        width: 100%;
+        box-sizing: border-box; /* Ensure padding doesn't affect size */
+        text-align: center; /* Center text inside the rectangle */
+        position: relative;
+    }
+   
+ 
+ 
+    .start-camera-btn {
+        display: block; /* Change from inline-block to block */
+        background-color: #ffffff; /* White background */
+        color: #4CAF50; /* Green text */
+        padding: 20px; /* Adjust padding to size appropriately */
+        text-decoration: none;
+        border-radius: 8px;
+        font-size: 32px;
+        font-weight: bold;
+        text-align: center;
+        position: relative; /* Keeps the button positioned relative to its normal flow */
+        margin: 20px auto; /* Centers the button horizontally, add top and bottom margin as needed */
+        box-sizing: border-box; /* Includes padding and border in width and height calculation */
+        align-self: center;
+      }
+      
+      
+      
+ 
+ 
+    .blurb {
+        font-size: 20px;
+        padding: 0px;
+        color: #ffffff;
+        margin-top: 20px;
+        position: relative;
+    }
+ }
+ 
