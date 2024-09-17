@@ -10,7 +10,7 @@ export default async function handler(req, res) {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    model: "gpt-4o",
+                    model: "gpt-4o-2024-08-06",
                     messages: [
                         {
                             role: "system",
@@ -32,9 +32,45 @@ export default async function handler(req, res) {
                             ]
                         }
                     ],
-                    max_tokens: 500
+                    max_tokens: 500,
+                    response_format: {
+                        type: "json_schema",
+                        json_schema: {
+                            name: "drug_response",
+                            schema: {
+                                type: "object",
+                                properties: {
+                                    drugs: {
+                                        type: "array",
+                                        items: {
+                                            type: "object",
+                                            properties: {
+                                                name: {
+                                                    type: "string",
+                                                    description: "The name of the drug."
+                                                },
+                                                summary: {
+                                                    type: "string",
+                                                    description: "A brief summary about the drug's properties."
+                                                },
+                                                addictive_or_not: {
+                                                    type: "boolean",
+                                                    description: "Indicates whether the drug is addictive (true) or not (false)."
+                                                }
+                                            },
+                                            required: ["name", "summary", "addictive_or_not"],
+                                            additionalProperties: false
+                                        }
+                                    },
+                                },
+                                required: ["drugs"],
+                                additionalProperties: false
+                            },
+                            strict: true
+                        }
+                    }
                 })
-            });
+            });  
 
             const data = await response.json();
             res.status(200).json({ message: data.choices[0].message.content });

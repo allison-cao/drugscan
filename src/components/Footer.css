@@ -1,7 +1,7 @@
 html, body {
     height: 100%;  /* Full height for the root elements */
     margin: 0;  /* Remove default margin */
-    display: flex;
+    /* display: flex; */
     flex-direction: column;  /* Makes the main container flex and column-oriented */
   }
 
@@ -9,23 +9,26 @@ html, body {
     display: flex;
     flex-direction: column;
     min-height: 275vh;  /* Ensures that the app container is at least the height of the viewport */
-    flex: 1;  /* Allows the container to expand with content */
+    flex: 0; 
   }
 
 .app {  /* Assuming your main React app div has class 'app' */
     display: flex;
     flex-direction: column;
-    flex: 1;  /* This will ensure that the app container can expand and contract as needed */
-  }
+  } 
 
 
 footer {
-    margin-top: auto;
-    color: white; /* Light text */
-    text-align: left; /* Align text to the left */
-    padding: 20px; /* Padding around the content */
-    font-size: 16px; /* Standard font size */
-    line-height: 1.5; /* Adequate line spacing for readability */
+  margin-top: auto;
+  color: white; /* Light text */
+  text-align: left; /* Align text to the left */
+  padding: 20px; /* Padding around the content */
+  font-size: 16px; /* Standard font size */
+  line-height: 1.5; /* Adequate line spacing for readability */
+  background-color: #333; /* Dark background for the footer */
+  border: 2px solid #555; /* Subtle border around the footer */
+  width: auto; /* Adjust width as needed, or set to a specific value */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Optional: adds shadow for depth */
 }
 
 footer a {
@@ -35,7 +38,8 @@ footer a {
 
 .disclaimer, .privacy-policy {
     margin-top: 10px; /* Adds space above each paragraph */
-    color: #929292
+    color: #929292;
+    padding: 20px;
 }
 
 /* Optionally, add a media query to handle smaller screens */
