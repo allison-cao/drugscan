@@ -36,13 +36,12 @@ function HomePage() {
         </div>
       </div>
       <div className="green-rectangle">
-        <h1>ABOUT DRUGSCAN</h1>
+        <h1>Why I built DrugScan</h1>
         <p className="app-description">
-        My name is Allison, I go to Tumwater Middle School, and this is how I used AI to create an application that tells you if a drug can be addictive from just a simple picture. 
+        My name is Allison and I go to Tumwater Middle School. I built this app because my dad almost got addicted to opioids, and because a kid from my school district died due to a drug overdose. This has been a very serious issue to me ever since those things happened.
         </p>
-        <h1>Read more at:</h1>
         <button onClick={handleButtonClick} className="start-camera-btn">
-         MY SUBSTACK
+         READ MORE
         </button>
       </div>
     </div>

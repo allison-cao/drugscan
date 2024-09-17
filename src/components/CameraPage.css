@@ -1,3 +1,28 @@
-.disclaimer-block {
-    color:#8e8e8e
+.card {
+    padding: 20px;
+    margin: 10px;
+    border-radius: 8px;
+    color: white;
+}
+
+.non-addictive {
+    background-color: #3aaa3e; /* Green color */
+    color: white;
+    padding: 50px;
+    border-radius: 30px;
+    margin: 10px auto; /* Center the element horizontally */
+    width: 70%;
+    box-sizing: border-box; /* Ensure padding doesn't affect size */
+    text-align: center; /* Center text inside the rectangle */
+}
+
+.addictive {
+    background-color: #af2424; /* Green color */
+    color: white;
+    padding: 50px;
+    border-radius: 30px;
+    margin: 10px auto; /* Center the element horizontally */
+    width: 70%;
+    box-sizing: border-box; /* Ensure padding doesn't affect size */
+    text-align: center; /* Center text inside the rectangle */
 }
